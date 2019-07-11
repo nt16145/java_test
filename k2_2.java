@@ -45,22 +45,11 @@ public class k2_2 extends HttpServlet {
         int i=0,j=0,hairetu = 0;
         int y_value = 6;
         int gakka = Integer.parseInt(request.getParameter("gakka"));
-        /*if(gakka_s == "Ｍ") {
-          gakka = 1;
-        } else if(gakka_s == "Ａ") {
-          gakka = 2;
-        } else if(gakka_s == "Ｊ") {
-          gakka = 3;
-        } else if(gakka_s == "Ｊ") {
-          gakka = 4;
-        } else if(gakka_s == "Ｋ") {
-          gakka = 5;
-        }*/
         g.setColor(Color.white);
         g.fillRect(0,0,900,900);
         g.setColor(Color.black);
         g.drawLine(50,50,50,850);
-        g.drawLine(50,850,850,850);
+        g.drawLine(50,850,825,850);
         Font f1 = new Font("SansSerif",Font.PLAIN,18);
         g.setFont(f1);
         if(gakka == 1){
@@ -79,8 +68,7 @@ public class k2_2 extends HttpServlet {
           x_axis = String.valueOf(i);
           g.drawString(x_axis,20,850-i);
         }
-        g.drawString("年度",900,850);
-
+        g.drawString("年度",850,850);
         for(i=60;i<801 ;i = i + 30) {
           y_axis = String.valueOf(y_value);
           g.drawString(y_axis,i,875);
