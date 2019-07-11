@@ -33,7 +33,7 @@ public class k2_1 extends HttpServlet {
         out.println("<input type=\"submit\" value=\"送信\">");
         out.println("</form>");
         out.println("<hr>");
-        out.println("No.出席番号　氏名<br>");
+        out.println("No.23　中村太一<br>");
         out.println("</body></html>");
     }
 }
