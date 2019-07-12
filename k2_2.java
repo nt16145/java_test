@@ -42,7 +42,7 @@ public class k2_2 extends HttpServlet {
         // この部分を完成させる
         String x_axis;
         String y_axis;
-        int i=0,j=0,hairetu = 0;
+        int i=0,j=0;
         int y_value = 6;
         int gakka = Integer.parseInt(request.getParameter("gakka"));
         g.setColor(Color.white);
