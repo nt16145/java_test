@@ -1,0 +1,258 @@
+/**
+ * 指定した文字列が数値に変換可能か構文解析し、変換を行うクラス
+ */
+public class NumberParser {
+ 
+    private boolean isByteParsed_;
+    private boolean isShortParsed_;
+    private boolean isIntParsed_;
+    private boolean isLongParsed_;
+    private boolean isFloatParsed_;
+    private boolean isDoubleParsed_;
+    private byte byteVal_;
+    private short shortVal_;
+    private int intVal_;
+    private long longVal_;
+    private float floatVal_;
+    private double doubleVal_;
+ 
+    /**
+     * 指定された文字列がbyte型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetByteメソッドで取得できます。
+     * 
+     * @param s    判定する文字列
+     * @return byte型に変換できる場合は true
+     */
+    public boolean canParseByte(String s) {
+        return canParseByte(s, 10);
+    }
+ 
+    /**
+     * 指定された基数をもとにして指定された文字列がbyte型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetByteメソッドで取得できます。
+     * 
+     * @param s        判定する文字列
+     * @param radix    基数
+     * @return byte型に変換できる場合は true
+     */
+    public boolean canParseByte(String s, int radix) {
+        try {
+            byteVal_ = Byte.parseByte(s, radix);
+            isByteParsed_ = true;
+            return true;
+             
+        } catch (NumberFormatException e) {
+            isByteParsed_ = false;
+            return false;
+        }
+    }
+ 
+    /**
+     * 指定された文字列がshort型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetShortメソッドで取得できます。
+     * 
+     * @param s    判定する文字列
+     * @return short型に変換できる場合は true
+     */
+    public boolean canParseShort(String s) {
+        return canParseShort(s, 10);
+    }
+ 
+    /**
+     * 指定された基数をもとにして指定された文字列がshort型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetShortメソッドで取得できます。
+     * 
+     * @param s        判定する文字列
+     * @param radix    基数
+     * @return short型に変換できる場合は true
+     */
+    public boolean canParseShort(String s, int radix) {
+        try {
+            shortVal_ = Short.parseShort(s, radix);
+            isShortParsed_ = true;
+            return true;
+             
+        } catch (NumberFormatException e) {
+            isShortParsed_ = false;
+            return false;
+        }
+    }
+ 
+    /**
+     * 指定された文字列がint型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetIntメソッドで取得できます。
+     * 
+     * @param s    判定する文字列
+     * @return int型に変換できる場合は true
+     */
+    public boolean canParseInt(String s) {
+        return canParseInt(s, 10);
+    }
+ 
+    /**
+     * 指定された基数をもとにして指定された文字列がint型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetIntメソッドで取得できます。
+     * 
+     * @param s        判定する文字列
+     * @param radix    基数
+     * @return int型に変換できる場合は true
+     */
+    public boolean canParseInt(String s, int radix) {
+        try {
+            intVal_ = Integer.parseInt(s, radix);
+            isIntParsed_ = true;
+            return true;
+             
+        } catch (NumberFormatException e) {
+            isIntParsed_ = false;
+            return false;
+        }
+    }
+ 
+    /**
+     * 指定された文字列がlong型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetLongメソッドで取得できます。
+     * 
+     * @param s    判定する文字列
+     * @return long型に変換できる場合は true
+     */
+    public boolean canParseLong(String s) {
+        return canParseLong(s, 10);
+    }
+ 
+    /**
+     * 指定された基数をもとにして指定された文字列がlong型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetLongメソッドで取得できます。
+     * 
+     * @param s        判定する文字列
+     * @param radix    基数
+     * @return long型に変換できる場合は true
+     */
+    public boolean canParseLong(String s, int radix) {
+        try {
+            longVal_ = Long.parseLong(s, radix);
+            isLongParsed_ = true;
+            return true;
+             
+        } catch (NumberFormatException e) {
+            isLongParsed_ = false;
+            return false;
+        }
+    }
+ 
+    /**
+     * 指定された文字列がfloat型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetFloatメソッドで取得できます。
+     * 
+     * @param s    判定する文字列
+     * @return float型に変換できる場合は true
+     */
+    public boolean canParseFloat(String s) {
+        try {
+            floatVal_ = Float.parseFloat(s);
+            isFloatParsed_ = true;
+            return true;
+             
+        } catch (NumberFormatException e) {
+            isFloatParsed_ = false;
+            return false;
+        }
+    }
+ 
+    /**
+     * 指定された文字列がdouble型に変換できるか判定します。
+     * 変換できる場合は、その結果をgetDoubleメソッドで取得できます。
+     * 
+     * @param s    判定する文字列
+     * @return double型に変換できる場合は true
+     */
+    public boolean canParseDouble(String s) {
+        try {
+            doubleVal_ = Double.parseDouble(s);
+            isDoubleParsed_ = true;
+            return true;
+             
+        } catch (NumberFormatException e) {
+            isDoubleParsed_ = false;
+            return false;
+        }
+    }
+ 
+    /**
+     * 直前に実行されたcanParseByteにより変換されたbyte値を取得します。
+     * 
+     * @return 変換されたbyte値
+     * @throws UnsupportedOperationException    canParseByteが一度も実行されていない、あるいは実行結果がfalseの場合
+     */
+    public byte getByte() {
+        if (!isByteParsed_) {
+            throw new UnsupportedOperationException("it isn't parsed yet.");
+        }
+        return byteVal_;
+    }
+ 
+    /**
+     * 直前に実行されたcanParseShortにより変換されたshort値を取得します。
+     * 
+     * @return 変換されたshort値
+     * @throws UnsupportedOperationException    canParseShortが一度も実行されていない、あるいは実行結果がfalseの場合
+     */
+    public short getShort() {
+        if (!isShortParsed_) {
+            throw new UnsupportedOperationException("it isn't parsed yet.");
+        }
+        return shortVal_;
+    }
+ 
+    /**
+     * 直前に実行されたcanParseIntにより変換されたint値を取得します。
+     * 
+     * @return 変換されたint値
+     * @throws UnsupportedOperationException    canParseIntが一度も実行されていない、あるいは実行結果がfalseの場合
+     */
+    public int getInt() {
+        if (!isIntParsed_) {
+            throw new UnsupportedOperationException("it isn't parsed yet.");
+        }
+        return intVal_;
+    }
+ 
+    /**
+     * 直前に実行されたcanParseLongにより変換されたlong値を取得します。
+     * 
+     * @return 変換されたlong値
+     * @throws UnsupportedOperationException    canParseLongが一度も実行されていない、あるいは実行結果がfalseの場合
+     */
+    public long getLong() {
+        if (!isLongParsed_) {
+            throw new UnsupportedOperationException("it isn't parsed yet.");
+        }
+        return longVal_;
+    }
+ 
+    /**
+     * 直前に実行されたcanParseFloatにより変換されたfloat値を取得します。
+     * 
+     * @return 変換されたfloat値
+     * @throws UnsupportedOperationException    canParseFloatが一度も実行されていない、あるいは実行結果がfalseの場合
+     */
+    public float getFloat() {
+        if (!isFloatParsed_) {
+            throw new UnsupportedOperationException("it isn't parsed yet.");
+        }
+        return floatVal_;
+    }
+ 
+    /**
+     * 直前に実行されたcanParseDoubleにより変換されたdouble値を取得します。
+     * 
+     * @return 変換されたdouble値
+     * @throws UnsupportedOperationException    canParseDoubleが一度も実行されていない、あるいは実行結果がfalseの場合
+     */
+    public double getDouble() {
+        if (!isDoubleParsed_) {
+            throw new UnsupportedOperationException("it isn't parsed yet.");
+        }
+        return doubleVal_;
+    }
+}
